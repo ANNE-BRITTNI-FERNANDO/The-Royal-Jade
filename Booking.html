@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+    <div id="app" x-data="{
+        version: '1.0.0'
+      }">
+
+
+        <header class="absolute inset-x-0 top-0 z-50 min-w-full  w-full" x-data="{mobileMenu: false}">
+            <nav class="flex items-center justify-between p-6 lg:px-8  min-w-full w-full" aria-label="Global">
+                <div class="flex lg:flex-1">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Your Company</span>
+                        <img class="h-24 w-auto" src="TRJ Transaprent Logo.png">
+                    </a>
+                </div>
+                <div class="flex lg:hidden">
+                    <button type="button" x-on:click="mobileMenu=!mobileMenu"
+                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="Home.html"
+                        class="text-md font-semibold leading-6 text-gray-900 text-white font-black">Home</a>
+                    <a href="Branches.html"
+                        class="text-md font-semibold leading-6 text-gray-900 text-white font-black">Hotel Branches</a>
+                    <a href="Adventures.html"
+                        class="text-md font-semibold leading-6 text-gray-900 text-white font-black">Adventures</a>
+                    <span class="text-md font-semibold leading-6 text-gray-900 relative block text-white font-black"
+                        x-data="{show: false}" x-on:mouseenter="show=true" x-on:mouseleave="show=false">
+                        <a href="Restaurant.html"
+                            class="text-md font-semibold leading-6 text-gray-900 text-white font-black">
+                            Restaurants
+                        </a>
+                        <span class="block absolute top-6 left-0 bg-white" x-show="show">
+                            <a href="Events_1.html"
+                                class="text-md font-semibold leading-6 text-gray-900 text-black font-black">Event 1</a>
+                            <a href="Events_2.html"
+                                class="text-md font-semibold leading-6 text-gray-900 text-black font-black">Event 2</a>
+                        </span>
+                    </span>
+                    <a href="ContactUs.html"
+                        class="text-md font-semibold leading-6 text-gray-900 text-white font-black">Contact Us</a>
+                    <a href="Booking.html"
+                        class="text-md font-semibold leading-6 text-gray-900 text-white font-black">Book Now</a>
+                </div>
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href="Signin.html"
+                        class="text-md font-semibold leading-6 text-gray-900 text-white font-black">Log in <span
+                            aria-hidden="true">&rarr;</span></a>
+                </div>
+            </nav>
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div class="lg:hidden" role="dialog" aria-modal="true" x-show="mobileMenu">
+                <!-- Background backdrop, show/hide based on slide-over state. -->
+                <div class="fixed inset-0 z-50"></div>
+                <div
+                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div class="flex items-center justify-between">
+                        <a href="#" class="-m-1.5 p-1.5">
+                            <span class="sr-only">Your Company</span>
+                            <img class="h-8 w-auto" src="TRJ Transaprent Logo.png" alt="TRJ Logo">
+                        </a>
+                        <button type="button" x-on:click="mobileMenu=!mobileMenu"
+                            class="-m-2.5 rounded-md p-2.5 text-white-700">
+                            <span class="sr-only">Close menu</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-white-500/10">
+                            <div class="space-y-2 py-6">
+                                <a href="Home.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Home</a>
+                                <a href="Branches.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Hotel
+                                    Branches</a>
+                                <a href="Adventures.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Adventures</a>
+                                <a href="Restaurant.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Restaurant</a>
+                                <a href="Events_1.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Parties</a>
+                                <a href="Events_2.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Events</a>
+                                <a href="ContactUs.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact
+                                    Us</a>
+                                <a href="Booking.html"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Book
+                                    Now</a>
+                            </div>
+                            <div class="py-6">
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
+                                    in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <section class="book">
+        <h1 class="book-heading">
+            <span>B</span>
+            <span>O</span>
+            <span>O</span>
+            <span>K</span>
+            <span class="space"></span>
+            <span>N</span>
+            <span>O</span>
+            <span>W</span>
+        </h1>
+        <form action="" class="transparent-form">
+            <div class="inputBox">
+                <h3>Select Hotel</h3>
+                <select id="adventure" name="adventure" required>
+                    <option value="The Royal Jade">The Royal Jade</option>
+                    <option value="RIU">RIU</option>
+                    <option value="Goldie Sands">Goldie Sands</option>
+                    <option value="Blue Waters">Blue Waters</option>
+                </select>
+            </div>
+            <div class="inputBox">
+                <h3>Number of Adults</h3>
+                <input type="number" placeholder="number of adults">
+            </div>
+            <div class="inputBox">
+                <h3>Number of Children</h3>
+                <input type="number" placeholder="number of children">
+            </div>
+
+            <div class="inputBox">
+                <h3>Check-In</h3>
+                <input type="date">
+            </div>
+            <div class="inputBox">
+                <h3>Check-Out</h3>
+                <input type="date">
+            </div>
+
+            <input type="submit" class="book-btn" value="Book Now">
+        </form>
+    </section>
+    <section class="book">
+        <form action="adventure-booking.php" method="POST" class="transparent-form">
+            <div class="inputBox">
+                <h3>Select Adventure</h3>
+                <select id="adventure" name="adventure" required>
+                    <option value="hiking">Hiking</option>
+                    <option value="sinharaja">Sinharaja Forest Tour</option>
+                    <option value="rock-climbing">Rock Climbing</option>
+                    <option value="paragliding">Paragliding</option>
+                </select>
+            </div>
+            <div class="inputBox">
+                <h3>Number of Participants</h3>
+                <input type="number" id="participants" name="participants" min="1" required>
+            </div>
+            <div class="inputBox">
+                <h3>Date</h3>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="inputBox">
+                <h3>Suitable Time</h3>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <input type="submit" class="book-btn" value="Book Now">
+        </form>
+
+    </section>
+    <footer class="small-footer">
+        <p>&copy; The Royal Jade (PVT) Ltd. 2023- All rights reserved.</p>
+    </footer>
+
+
+
+
+</body>
+
+</html>
